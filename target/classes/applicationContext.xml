@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define a class, using implementation-->
+    <bean name="foo" class="com.pluralsight.repository.HibernateCustomerRepositoryImpl"></bean>
+
+
+    <!-- Setter injection: Inject HibernateCustomerRepositoryImpl to customerRepository -->
+    <bean name="customerService" class="com.pluralsight.service.CustomerServiceImpl">
+        <property name="customerRepository" ref="foo"></property>
+    </bean>
+</beans>
